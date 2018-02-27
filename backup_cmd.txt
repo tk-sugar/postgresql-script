@@ -1,0 +1,20 @@
+# development db
+pg_dump -v -h xx.xx.xx.xx -d mother -U prd_user -W -t hoge_table > hoge_table.sql
+
+# production db
+pg_dump -v -h xx.xx.xx.xx -d mother -U prd_user -W -t hoge_table > hoge_table.sql
+
+# execute local
+DROP TABLE hoge_table;
+
+psql -d mother -f hoge_table.sql
+psql -d mother -f hoge_table.sql
+psql -d mother -f hoge_table.sql
+
+# execute server
+/usr/local/pgsql/bin/psql -U prd_user -d mother
+
+DROP TABLE hoge_table;
+
+/usr/local/pgsql/bin/psql -d mother -f hoge_table.sql -U prd_user
+
